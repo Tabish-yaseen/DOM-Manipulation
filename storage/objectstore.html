@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form">
+       Name: <input type="text" class="name">
+       PhoneNo: <input type="number" class="phoneno">
+      Email:<input type="email" class="email">
+       <input type="submit" value="submit">
+    </form>
+    <ul id="list">
+        
+        
+    </ul>
+    <script>
+        let form=document.querySelector('#form')
+       
+        form.addEventListener('submit',onsubmit)
+        function onsubmit(e){
+            e.preventDefault()
+            let name=document.querySelector('.name')
+            let phonenumber=document.querySelector('.phoneno')
+            let email=document.querySelector('.email')
+            const details={
+                Name:name.value,
+                phoneNumber:phonenumber.value,
+                Email:email.value,
+            };
+            localStorage.setItem(details.Email,JSON.stringify(details))
+
+            let ul=document.querySelector('#list')
+            let li=document.createElement('li')
+            let displayString =`${details.Name}-${details.Email}-${details.phoneNumber} `;
+          
+            li.appendChild(document.createTextNode(displayString))
+            ul.appendChild(li)
+            
+
+           
+
+        }
+
+    </script>
+    
+</body>
+</html>
