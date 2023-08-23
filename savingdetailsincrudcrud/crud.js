@@ -14,18 +14,21 @@ let form=document.querySelector('#form')
             };
             axios.post('https://crudcrud.com/api/5297bfaa791a4128845841f707e9235f/applicationData', details)
             .then((res)=>{
-                console.log(res.data.Name)
-                showonscreen(res)
+                
+                showonscreen(res.data)
             })
             .catch((err)=>{
                 console.log(err)
             })
-            function showonscreen(res){
+        }
+            
+
+            function showonscreen(data){
                 let li=document.createElement('li')
                 li.textContent=
-                `${res.data.Name} ${res.data. phoneNumber} ${res.data.Email}`
+                `${data.Name} ${data. phoneNumber} ${data.Email}`
                 ul.appendChild(li)
 
             }
 
-        }
+        

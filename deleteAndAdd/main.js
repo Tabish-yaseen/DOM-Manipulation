@@ -13,6 +13,7 @@ function additem(e){
     newli.className="list-group-item"
     //creating textnode
     let textNode=document.createTextNode(input)
+    console.log(newli)
     //adding textnode to newli
     newli.appendChild(textNode)
    

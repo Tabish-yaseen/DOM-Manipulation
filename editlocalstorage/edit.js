@@ -1,7 +1,5 @@
 let ul=document.querySelector('#list')
-document.addEventListener('click',deletebtn)
-
-ul.addEventListener('click',editbtn)
+ul.addEventListener('click',editordeletebtn)
 
 
 let form=document.querySelector('#form')
@@ -47,11 +45,13 @@ function onsubmit(e){
     editbtn.className='edit'
     editbtn.appendChild(document.createTextNode('edit'))
     li.appendChild(editbtn)
+    console.log(li)
     //finally appending li with the ul parent 
     ul.appendChild(li)
 }
-function deletebtn(e){
+function editordeletebtn(e){
     // let email=document.querySelector('.email')
+    // for delete
     if(e.target.classList.contains('button')){
        let item =e.target.parentNode
        ul.removeChild(item)
@@ -60,20 +60,20 @@ function deletebtn(e){
        localStorage.removeItem(email)
 
     }
-   }
-   function editbtn(e){
-    
+    // for edit
+
     if(e.target.classList.contains('edit')){
-     const li = e.target.parentNode
-     ul.removeChild(li)
-     
-     const email=li.childNodes[1].textContent
-     localStorage.removeItem(email)
-     name1.value=li.childNodes[0].textContent
-     phonenumber.value=li.childNodes[2].textContent
-     email1.value=li.childNodes[1].textContent
- }
+        const li = e.target.parentNode
+        ul.removeChild(li)
+        
+        const email=li.childNodes[1].textContent
+        localStorage.removeItem(email)
+        name1.value=li.childNodes[0].textContent
+        phonenumber.value=li.childNodes[2].textContent
+        email1.value=li.childNodes[1].textContent
     }
+   }
+   
 
 
 
